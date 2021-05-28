@@ -2,8 +2,8 @@
 import { IHttpParams, HttpResponse } from '../domain/interfaces';
 
 export interface IHttpClient {
-  post: (postParams: IHttpParams) => Promise<HttpResponse<any>>;
-  get: (hetParams: IHttpParams) => Promise<HttpResponse<any>>;
-  patch: (patchParams: IHttpParams) => Promise<HttpResponse<any>>;
-  delete: (deleteParams: IHttpParams) => Promise<HttpResponse<any>>;
+  post: <T>(postParams: IHttpParams) => Promise<HttpResponse<T>>;
+  get: <T>(hetParams: IHttpParams) => Promise<HttpResponse<T>>;
+  patch: <T>(patchParams: IHttpParams) => Promise<HttpResponse<T>>;
+  delete: <T>(deleteParams: IHttpParams) => Promise<HttpResponse<T>>;
 }
