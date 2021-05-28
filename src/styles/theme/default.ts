@@ -18,6 +18,8 @@ const defaultTheme: DefaultTheme = {
     headerPrimary: COLORS.headerPrimary,
     headerSecondary: COLORS.headerSecondary,
     inputGrey: COLORS.inputGrey,
+    borderLight: COLORS.borderLight,
+    backgroundErased: COLORS.backgroundErased,
   },
 };
 

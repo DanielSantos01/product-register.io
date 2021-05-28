@@ -1,21 +1,24 @@
 import React from 'react';
 
+import Input from '@components/Input';
+import Header from '@components/Header';
 import Button from '@components/SubmitButton';
-import { Header, Logo } from './components';
+import { Logo, HeaderOptions } from './components';
 import {
   Container,
   ContentContainer,
   InputContainer,
   LogoContainer,
-  Input,
 } from './styles';
 
 const Main: React.FC = () => (
   <Container>
-    <Header />
+    <Header>
+      <HeaderOptions />
+    </Header>
     <ContentContainer>
       <InputContainer>
-        <Input placeholder="Endereço de E-mail" />
+        <Input placeholder="E-mail address" />
         <Button />
       </InputContainer>
       <LogoContainer>

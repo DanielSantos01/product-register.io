@@ -16,6 +16,8 @@ declare module 'styled-components' {
       headerSecondary: string;
       confirmGreen: string;
       inputGrey: string;
+      borderLight: string;
+      backgroundErased: string;
     }
   }
 }

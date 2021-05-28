@@ -1,4 +1,4 @@
-import Header from './Header';
 import Logo from './Logo';
+import HeaderOptions from './HeaderOptions';
 
-export { Header, Logo };
+export { Logo, HeaderOptions };
