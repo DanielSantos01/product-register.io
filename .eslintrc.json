@@ -37,6 +37,8 @@
         "no-unused-vars":"warn",
         "react/jsx-props-no-spreading": "off",
         "react/prop-types": "off",
-        "import/prefer-default-export": "off"
+        "import/prefer-default-export": "off",
+        "no-shadow":"off",
+        "lines-between-class-members":"off"
     }
 }
