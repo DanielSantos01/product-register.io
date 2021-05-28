@@ -1,40 +1,16 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import {
-  Container,
-  SignUpButton,
-  ModelContainer,
-  TextContent,
-  AuxContainer,
-  FieldInput,
-} from './styles';
+import Main from './Main';
 
-const HeaderOptions: React.FC = () => (
-  <Container>
-    <AuxContainer>
-      <ModelContainer style={{ marginRight: 10 }}>
-        <TextContent underline>About</TextContent>
-      </ModelContainer>
+const HeaderOptions: React.FC = () => {
+  const { push } = useHistory();
 
-      <ModelContainer>
-        <TextContent underline>Contact US</TextContent>
-      </ModelContainer>
-    </AuxContainer>
+  const handleSignUp = useCallback(() => {
+    push('signup');
+  }, []);
 
-    <AuxContainer>
-      <FieldInput placeholder="Login" />
-
-      <FieldInput placeholder="Password" type="password" />
-
-      <ModelContainer style={{ marginRight: 10 }}>
-        <TextContent underline>Sign In</TextContent>
-      </ModelContainer>
-
-      <SignUpButton>
-        <TextContent>Sign Up</TextContent>
-      </SignUpButton>
-    </AuxContainer>
-  </Container>
-);
+  return <Main handleSignUp={handleSignUp} />;
+};
 
 export default HeaderOptions;

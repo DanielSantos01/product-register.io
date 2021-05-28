@@ -1,0 +1,53 @@
+@keyframes go-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes go-up {
+  from {
+    transform: translateY(3000%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes move-front {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes move-back {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes go-in {
+  from {
+    transform: translateX(-100%) scale(0);
+  }
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes go-out {
+  from {
+    transform: translateX(0) scale(1);
+  }
+  to {
+    transform: translateX(-100%) scale(0);
+  }
+}

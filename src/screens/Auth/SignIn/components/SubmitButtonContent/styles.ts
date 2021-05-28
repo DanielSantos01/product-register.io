@@ -11,55 +11,17 @@ export const Container = styled.div`
 
   .move-on-hover {
     animation: move-back 250ms forwards;
-
-    @keyframes move-back {
-      from {
-        transform: translateX(0);
-      }
-      to {
-        transform: translateX(-120%);
-      }
-    }
   }
-
   .visible-on-hover {
     animation: go-out 250ms forwards;
-
-    @keyframes go-out {
-      from {
-        transform: translateX(0) scale(1);
-      }
-      to {
-        transform: translateX(-100%) scale(0);
-      }
-    }
   }
 
   :hover {
-
     .move-on-hover {
       animation: move-front 250ms forwards;
-
-      @keyframes move-front {
-        from {
-          transform: translateX(-120%);
-        }
-        to {
-          transform: translateX(0);
-        }
-      }
     }
     .visible-on-hover {
       animation: go-in 250ms forwards;
-
-      @keyframes go-in {
-        from {
-          transform: translateX(-100%) scale(0);
-        }
-        to {
-          transform: translateX(0) scale(1);
-        }
-      }
     }
   }
 `;

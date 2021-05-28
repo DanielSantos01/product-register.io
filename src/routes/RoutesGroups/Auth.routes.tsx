@@ -1,7 +1,13 @@
 import React from 'react';
-import { Switch, RouteProps, useRouteMatch } from 'react-router-dom';
+import {
+  Switch,
+  RouteProps,
+  useRouteMatch,
+  Redirect,
+} from 'react-router-dom';
 
-import SignIn from '../../screens/Auth/SignIn';
+import SignIn from '@screens/Auth/SignIn';
+import SignUp from '@screens/Auth/SignUp';
 import Route from '../components/Route';
 
 const AuthRoutes: React.FC<RouteProps> = () => {
@@ -9,7 +15,9 @@ const AuthRoutes: React.FC<RouteProps> = () => {
 
   return (
     <Switch>
-      <Route path={`${path}/`} component={SignIn} />
+      <Route path={`${path}/signin`} component={SignIn} />
+      <Route path={`${path}/signup`} component={SignUp} />
+      <Redirect to={`${path}/signin`} />
     </Switch>
   );
 };
