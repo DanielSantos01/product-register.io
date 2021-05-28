@@ -1,15 +1,6 @@
 export interface IHttpParams {
   url: string,
-  body?: IHttpBodyParams;
-  query?: IHttpQueryParams;
-}
-
-interface IHttpBodyParams {
-  [paramKey: string]: any;
-}
-
-interface IHttpQueryParams {
-  [paramKey: string]: any;
+  body?: URLSearchParams;
 }
 
 export interface HttpResponse<T> {

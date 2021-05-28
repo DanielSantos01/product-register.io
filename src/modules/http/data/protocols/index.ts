@@ -1,10 +1,14 @@
-export interface IHttpHelperParams {
-  url: string,
+export interface IHttpDataParams {
+  url: string;
   body: IHttpHelperBodyParams;
 }
 
-interface IHttpHelperBodyParams {
-  [paramKey: string]: any;
+export interface IHttpNoDataParams {
+  url: string;
+}
+
+export interface IHttpHelperBodyParams {
+  [paramKey: string]: string;
 }
 
 export interface HttpHelperResponse<T> {

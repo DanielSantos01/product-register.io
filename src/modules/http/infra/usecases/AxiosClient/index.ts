@@ -17,7 +17,7 @@ class AxiosClient implements IHttpClient {
 
   async post<T>(postParams: IHttpParams): Promise<HttpResponse<T>> {
     const { url, body } = postParams;
-    const received: AxiosResponse<T> = await this.axiosInstance.post(url, body, this.headers);
+    const received: AxiosResponse<T> = await this.axiosInstance.post<T>(url, body, this.headers);
     const response: HttpResponse<T> = {
       statusCode: received.status,
       body: received.data,
@@ -27,9 +27,7 @@ class AxiosClient implements IHttpClient {
 
   async get<T>(getParams: IHttpParams): Promise<HttpResponse<T>> {
     const { url } = getParams;
-    const received: AxiosResponse<T> = await this.axiosInstance.get(url, {
-      headers: { 'X-Custom-Header': 'value' },
-    });
+    const received: AxiosResponse<T> = await this.axiosInstance.get<T>(url, this.headers);
     const response: HttpResponse<T> = {
       statusCode: received.status,
       body: received.data,
@@ -39,7 +37,7 @@ class AxiosClient implements IHttpClient {
 
   async patch<T>(patchParams: IHttpParams): Promise<HttpResponse<T>> {
     const { url, body } = patchParams;
-    const received: AxiosResponse<T> = await this.axiosInstance.patch(url, body, this.headers);
+    const received: AxiosResponse<T> = await this.axiosInstance.patch<T>(url, body, this.headers);
     const response: HttpResponse<T> = {
       statusCode: received.status,
       body: received.data,
@@ -49,7 +47,7 @@ class AxiosClient implements IHttpClient {
 
   async delete<T>(deleteParams: IHttpParams): Promise<HttpResponse<T>> {
     const { url } = deleteParams;
-    const received: AxiosResponse<T> = await this.axiosInstance.delete(url, this.headers);
+    const received: AxiosResponse<T> = await this.axiosInstance.delete<T>(url, this.headers);
     const response: HttpResponse<T> = {
       statusCode: received.status,
       body: received.data,
