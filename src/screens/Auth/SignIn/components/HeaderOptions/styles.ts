@@ -58,6 +58,8 @@ export const TextContent = styled.p<OptionalProps>`
   font-weight: 600;
   text-align: center;
   margin-bottom: 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   
   :hover {
     text-decoration: ${({ underline }) => (underline ? 'underline;' : 'none;')};
@@ -73,7 +75,7 @@ export const FieldInput = styled.input`
   font-size: 16px;
   padding: 18px 10px;
   color: white;
-  font-family: ${({ theme }) => theme.fonts.secondary};
+  font-family: ${({ theme }) => theme.fonts.terciary};
   border: none;
   margin-right: 15px;
 `;

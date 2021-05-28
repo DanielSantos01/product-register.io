@@ -20,6 +20,9 @@ const defaultTheme: DefaultTheme = {
     inputGrey: COLORS.inputGrey,
     borderLight: COLORS.borderLight,
     backgroundErased: COLORS.backgroundErased,
+    borderGrey: COLORS.borderGrey,
+    lighterGreen: COLORS.lighterGreen,
+    darkerGreen: COLORS.darkerGreen,
   },
 };
 

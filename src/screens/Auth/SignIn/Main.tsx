@@ -3,12 +3,18 @@ import React from 'react';
 import Input from '@components/Input';
 import Header from '@components/Header';
 import Button from '@components/SubmitButton';
-import { Logo, HeaderOptions } from './components';
+import {
+  Logo,
+  HeaderOptions,
+  ScreenInfo,
+  SubmitButtonContent,
+} from './components';
 import {
   Container,
   ContentContainer,
   InputContainer,
   LogoContainer,
+  RegistrationInfo,
 } from './styles';
 
 const Main: React.FC = () => (
@@ -16,15 +22,24 @@ const Main: React.FC = () => (
     <Header>
       <HeaderOptions />
     </Header>
+
     <ContentContainer>
-      <InputContainer>
-        <Input placeholder="E-mail address" />
-        <Button />
-      </InputContainer>
+      <ScreenInfo />
+
       <LogoContainer>
         <Logo />
       </LogoContainer>
     </ContentContainer>
+
+    <InputContainer>
+      <Input placeholder="youremail@somedomain.com" />
+      <Button>
+        <SubmitButtonContent />
+      </Button>
+    </InputContainer>
+    <RegistrationInfo>
+      Registrate now and be able to this and much more!
+    </RegistrationInfo>
   </Container>
 );
 

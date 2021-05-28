@@ -18,6 +18,9 @@ declare module 'styled-components' {
       inputGrey: string;
       borderLight: string;
       backgroundErased: string;
+      borderGrey: string;
+      lighterGreen: string;
+      darkerGreen: string;
     }
   }
 }

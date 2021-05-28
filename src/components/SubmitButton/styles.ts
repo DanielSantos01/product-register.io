@@ -9,7 +9,7 @@ export const Button = styled.div`
   width: 20%;
   min-width: 10%;
   border-radius: 10px;
-  background-color: ${({ theme }) => theme.colors.confirmGreen};
+  background: ${({ theme }) => `linear-gradient(-180deg, ${theme.colors.lighterGreen}, ${theme.colors.darkerGreen})`};
   opacity: 0.9;
   transition: 200ms;
 

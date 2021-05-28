@@ -7,17 +7,14 @@ import {
   HeaderTitle,
 } from './styles';
 
-const Header: React.FC = ({ children }) => {
-  console.log(children);
-  return (
-    <Container>
-      <HeaderTitleContainer>
-        <CubeIcon />
-        <HeaderTitle>ProductRegister.io</HeaderTitle>
-      </HeaderTitleContainer>
-      {children}
-    </Container>
-  );
-};
+const Header: React.FC = ({ children }) => (
+  <Container>
+    <HeaderTitleContainer>
+      <CubeIcon />
+      <HeaderTitle>ProductRegister.io</HeaderTitle>
+    </HeaderTitleContainer>
+    {children}
+  </Container>
+);
 
 export default Header;
