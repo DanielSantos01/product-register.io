@@ -12,6 +12,10 @@ declare module 'styled-components' {
 
     colors: {
       light: string;
+      headerPrimary: string;
+      headerSecondary: string;
+      confirmGreen: string;
+      inputGrey: string;
     }
   }
 }

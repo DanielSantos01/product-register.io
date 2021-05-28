@@ -14,6 +14,10 @@ const defaultTheme: DefaultTheme = {
 
   colors: {
     light: COLORS.light,
+    confirmGreen: COLORS.confirmGreen,
+    headerPrimary: COLORS.headerPrimary,
+    headerSecondary: COLORS.headerSecondary,
+    inputGrey: COLORS.inputGrey,
   },
 };
 

@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Container } from './styles';
+import Main from './Main';
 
 const SignIn: React.FC = () => (
-  <Container />
+  <Main />
 );
 
 export default SignIn;
