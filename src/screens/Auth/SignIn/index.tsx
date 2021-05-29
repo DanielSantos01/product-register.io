@@ -1,9 +1,9 @@
 import React from 'react';
 
+import Main from './Main';
+
 const SignIn: React.FC = () => (
-  <div>
-    <p>Olá Mundo!</p>
-  </div>
+  <Main />
 );
 
 export default SignIn;
