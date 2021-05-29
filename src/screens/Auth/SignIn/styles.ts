@@ -40,6 +40,6 @@ export const RegistrationInfo = styled.p`
   font-family: ${({ theme }) => theme.fonts.primary};
   color: ${({ theme }) => theme.colors.borderGrey};
   margin-top: 20px;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 800;
 `;

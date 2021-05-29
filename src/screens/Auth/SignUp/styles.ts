@@ -14,6 +14,10 @@ export const Container = styled.div`
   @media(max-width: 778px) {
     padding: 50px;
   }
+
+  @media(max-width: 400px) {
+    padding: 10px;
+  }
 `;
 
 export const Title = styled.p`
@@ -37,19 +41,24 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-width: 470px;
+  min-width: 400px;
   height: 500px;
   margin-top: 2vw;
   border-radius: 10px;
 
   @media(min-width: 778px) {
     width: 35%;
+  }@media(max-width: 400px) {
+    padding: 10px;
+  }
+
+  @media(max-width: 400px) {
+    min-width: 150px;
   }
 `;
 
 export const ConfirmButton = styled(Button)`
   width: 100%;
-  height: 42px;
   margin-bottom: 30px;
 `;
 

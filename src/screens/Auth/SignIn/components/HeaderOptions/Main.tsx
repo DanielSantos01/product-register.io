@@ -18,7 +18,7 @@ const HeaderOptions: React.FC<MainProps> = ({ handleSignUp }) => (
       </ModelContainer>
 
       <ModelContainer>
-        <TextContent underline>Contact US</TextContent>
+        <TextContent underline>Contact Us</TextContent>
       </ModelContainer>
     </AuxContainer>
 

@@ -37,7 +37,7 @@ export const InfoRow = styled.div`
 
 export const InfoContent = styled.p`
   font-family: ${({ theme }) => theme.fonts.terciary};
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.5);
 `;
@@ -49,7 +49,7 @@ export const TextContainer = styled.div`
 
 export const InfoDescription = styled.p`
   font-family: ${({ theme }) => theme.fonts.terciary};
-  font-size: 18px;
+  font-size: 14px;
   opacity: 0.9;
   font-style: italic;
   color: rgba(0, 0, 0, 0.5);

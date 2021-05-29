@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Input = styled.input`
-  height: 60px;
+  height: 42px;
   padding: 18px 10px;
   color: ${({ theme }) => theme.colors.backgroundErased};
   font-family: ${({ theme }) => theme.fonts.terciary};

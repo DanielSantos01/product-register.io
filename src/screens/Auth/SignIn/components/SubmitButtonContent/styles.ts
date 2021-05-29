@@ -27,13 +27,13 @@ export const Container = styled.div`
 `;
 
 export const ArrowIcon = styled(IoIosArrowForward)`
-  font-size: 30px;
+  font-size: 25px;
   color: white;
 `;
 
 export const TextContent = styled.p`
   font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: white;
 `;

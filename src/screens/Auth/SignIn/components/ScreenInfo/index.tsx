@@ -24,7 +24,7 @@ const ScreenInfo: React.FC = () => {
 
   return (
     <Container>
-      <Title>DO MORE IN A BETTER WAY</Title>
+      <Title>DO MORE, IN A BETTER WAY</Title>
       {allInfos}
     </Container>
   );

@@ -26,7 +26,7 @@ export const ModelContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 45px;
+  height: 38px;
   min-width: 90px;
   padding: 10px;
   transition: 400ms;
@@ -54,7 +54,7 @@ export const SignUpButton = styled(ModelContainer)`
 export const TextContent = styled.p<OptionalProps>`
   font-family: ${({ theme }) => theme.fonts.primary};
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   text-align: center;
   margin-bottom: 2px;
@@ -67,12 +67,12 @@ export const TextContent = styled.p<OptionalProps>`
 `;
 
 export const FieldInput = styled.input`
-  width: 200px;
-  height: 45px;
+  width: 180px;
+  height: 38px;
   border-radius: 10px;
   background-color: #2a3044;
   outline: none;
-  font-size: 16px;
+  font-size: 12px;
   padding: 18px 10px;
   color: white;
   font-family: ${({ theme }) => theme.fonts.terciary};
