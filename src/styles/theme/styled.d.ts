@@ -21,6 +21,8 @@ declare module 'styled-components' {
       borderGrey: string;
       lighterGreen: string;
       darkerGreen: string;
+      discretGrey: string;
+      titleGrey: string;
     }
   }
 }

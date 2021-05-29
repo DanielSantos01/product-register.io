@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Name",
+    "id": "signup-name",
+    "isRequired": true
+  },
+  {
+    "name": "Role",
+    "id": "signup-role",
+    "isRequired": false
+  },
+  {
+    "name": "Login",
+    "id": "signup-login",
+    "isRequired": true
+  },
+  {
+    "name": "Password",
+    "id": "signup-password",
+    "isRequired": true
+  }
+]

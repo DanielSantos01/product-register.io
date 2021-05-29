@@ -9,7 +9,7 @@
 
 @keyframes go-up {
   from {
-    transform: translateY(3000%);
+    transform: translateY(100%);
   }
   to {
     transform: translateY(0);
@@ -49,5 +49,41 @@
   }
   to {
     transform: translateX(-100%) scale(0);
+  }
+}
+
+@keyframes comes-from-left {
+  from {
+    transform: translateX(100%) scale(0);
+  }
+  to {
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes disappear-to-left {
+  from {
+    transform: translateX(0) scale(1);
+  }
+  to {
+    transform: translateX(100%) scale(0);
+  }
+}
+
+@keyframes inverse-move-front {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-15%);
+  }
+}
+
+@keyframes inverse-move-back {
+  from {
+    transform: translateX(-15%);
+  }
+  to {
+    transform: translateX(100%);
   }
 }

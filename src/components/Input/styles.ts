@@ -7,7 +7,7 @@ export const Input = styled.input`
   font-family: ${({ theme }) => theme.fonts.terciary};
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  font-size: 17px;
+  font-size: 12px;
   min-width: 40%;
   width: 60%;
   margin-right: 10px;

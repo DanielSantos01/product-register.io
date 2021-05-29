@@ -23,6 +23,8 @@ const defaultTheme: DefaultTheme = {
     borderGrey: COLORS.borderGrey,
     lighterGreen: COLORS.lighterGreen,
     darkerGreen: COLORS.darkerGreen,
+    discretGrey: COLORS.discretGrey,
+    titleGrey: COLORS.titleGrey,
   },
 };
 

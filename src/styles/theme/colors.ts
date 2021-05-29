@@ -8,6 +8,8 @@ const COLORS = {
   inputGrey: '#24292e',
   borderLight: '#e1e4e8',
   borderGrey: '#bdbdbd',
+  discretGrey: 'rgba(0, 0, 0, 0.1)',
+  titleGrey: 'rgba(0, 0, 0, 0.7)',
   backgroundErased: '#2a3044',
 };
 

@@ -1,10 +1,33 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { MainProps } from './interfaces';
+import { Fields, ConfirmContent, BackContent } from './components';
+import {
+  Container,
+  Title,
+  Description,
+  ContentContainer,
+  ConfirmButton,
+  BackButton,
+} from './styles';
 
-const Main: React.FC = () => (
+const Main: React.FC<MainProps> = ({ handleReturn }) => (
   <Container>
-    <p>Register screen</p>
+    <Title>SIGN UP</Title>
+
+    <Description>fill the required fields to create your account</Description>
+
+    <ContentContainer>
+      <Fields />
+
+      <ConfirmButton>
+        <ConfirmContent />
+      </ConfirmButton>
+
+      <BackButton onClick={handleReturn}>
+        <BackContent />
+      </BackButton>
+    </ContentContainer>
   </Container>
 );
 
