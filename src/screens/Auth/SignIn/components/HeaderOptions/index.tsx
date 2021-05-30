@@ -19,8 +19,7 @@ const HeaderOptions: React.FC = () => {
     const login = document.querySelector<any>('.input-login-signin').value;
     const password = document.querySelector<any>('.input-password-signin').value;
     if (!password || !login) return;
-    const response = await signIn({ login, password });
-    console.log(response);
+    await signIn({ login, password });
   }, []);
 
   return (

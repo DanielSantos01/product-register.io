@@ -11,5 +11,6 @@ export const Container = styled.div<ModalProps>`
   height: ${window.innerHeight - 70};
   animation: ${({ isVisible }) => (isVisible ? 'show-modal' : 'hide-modal')} 250ms forwards;
   transition: background 250ms;
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 `;

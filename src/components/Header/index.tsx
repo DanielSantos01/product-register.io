@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({
         {customIcon}
         <InfoContainer>
           <HeaderTitle>{title}</HeaderTitle>
-          {description && <Description>(Desenvolvedor)</Description>}
+          {description && <Description>{description}</Description>}
         </InfoContainer>
       </HeaderTitleContainer>
       {children}

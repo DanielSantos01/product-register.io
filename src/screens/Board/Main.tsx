@@ -1,8 +1,7 @@
 import React from 'react';
 
-import Hamburguer from '@components/Hamburguer';
 import Header from '@components/Header';
-
+import { HeaderOptions } from './components';
 import { UserIcon, Container } from './styles';
 
 const Main: React.FC = () => (
@@ -12,7 +11,7 @@ const Main: React.FC = () => (
       title="Daniel Santos"
       description="Desenvolvedor"
     >
-      <Hamburguer />
+      <HeaderOptions />
     </Header>
   </Container>
 );

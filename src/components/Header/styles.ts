@@ -38,6 +38,7 @@ export const HeaderTitle = styled.p`
   font-weight: 600;
   color: white;
   padding-left: 10px;
+  white-space: nowrap;
 `;
 
 export const Description = styled.p`
