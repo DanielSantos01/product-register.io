@@ -10,6 +10,7 @@ const Fields: React.FC = () => {
       <FieldInput
         placeholder={field.name + (field.isRequired ? ' *' : '')}
         className={field.id}
+        type={field.type}
       />
     </InputContainer>
   ));

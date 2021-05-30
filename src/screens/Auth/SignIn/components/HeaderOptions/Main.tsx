@@ -10,7 +10,7 @@ import {
   FieldInput,
 } from './styles';
 
-const HeaderOptions: React.FC<MainProps> = ({ handleSignUp }) => (
+const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn }) => (
   <Container>
     <AuxContainer>
       <ModelContainer style={{ marginRight: 10 }}>
@@ -23,15 +23,15 @@ const HeaderOptions: React.FC<MainProps> = ({ handleSignUp }) => (
     </AuxContainer>
 
     <AuxContainer>
-      <FieldInput placeholder="Login" />
+      <FieldInput placeholder="Login" className="input-login-signin" />
 
-      <FieldInput placeholder="Password" type="password" />
+      <FieldInput placeholder="Password" type="password" className="input-password-signin" />
 
-      <ModelContainer style={{ marginRight: 10 }}>
+      <ModelContainer style={{ marginRight: 10 }} onClick={handleSignIn}>
         <TextContent underline>Sign In</TextContent>
       </ModelContainer>
 
-      <SignUpButton onClick={handleSignUp}>
+      <SignUpButton onClick={goToSignUp}>
         <TextContent>Sign Up</TextContent>
       </SignUpButton>
     </AuxContainer>

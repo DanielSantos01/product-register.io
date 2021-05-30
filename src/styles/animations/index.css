@@ -87,3 +87,9 @@
     transform: translateX(100%);
   }
 }
+
+@keyframes is-rotating {
+  to {
+    transform: rotate(1turn);
+  }
+}

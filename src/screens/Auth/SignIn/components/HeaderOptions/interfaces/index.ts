@@ -1,3 +1,4 @@
 export interface MainProps {
-  handleSignUp: () => void;
+  goToSignUp: () => void;
+  handleSignIn: () => Promise<void>;
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Loader } from '@components/Loader/styles';
 import Input from '@components/Input';
 import Header from '@components/Header';
 import Button from '@components/SubmitButton';
+import { MainProps } from './interfaces';
 import {
   Logo,
   HeaderOptions,
@@ -17,7 +19,7 @@ import {
   RegistrationInfo,
 } from './styles';
 
-const Main: React.FC = () => (
+const Main: React.FC<MainProps> = ({ handleCheckLogin, isCheckingLogin }) => (
   <Container>
     <Header>
       <HeaderOptions />
@@ -32,9 +34,9 @@ const Main: React.FC = () => (
     </ContentContainer>
 
     <InputContainer>
-      <Input placeholder="youremail@somedomain.com" />
-      <Button>
-        <SubmitButtonContent />
+      <Input placeholder="youremail@somedomain.com" className="input-check-login" />
+      <Button onClick={handleCheckLogin}>
+        {isCheckingLogin ? <Loader /> : <SubmitButtonContent />}
       </Button>
     </InputContainer>
     <RegistrationInfo>

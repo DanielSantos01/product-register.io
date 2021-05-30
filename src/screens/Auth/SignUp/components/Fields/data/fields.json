@@ -1,22 +1,26 @@
 [
   {
-    "name": "Name",
+    "name": "name",
     "id": "signup-name",
-    "isRequired": true
+    "isRequired": true,
+    "type": "text"
   },
   {
-    "name": "Role",
+    "name": "role",
     "id": "signup-role",
-    "isRequired": false
+    "isRequired": false,
+    "type": "text"
   },
   {
-    "name": "Login",
+    "name": "login",
     "id": "signup-login",
-    "isRequired": true
+    "isRequired": true,
+    "type": "text"
   },
   {
-    "name": "Password",
+    "name": "password",
     "id": "signup-password",
-    "isRequired": true
+    "isRequired": true,
+    "type": "password"
   }
 ]
