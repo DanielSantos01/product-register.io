@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: 5px 25px;
+  position: sticky;
+  top: 0;
   height: 70px;
+  background-image: linear-gradient(-220deg, #032c62, #03001c);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  width: 100%;
+`;
+
+export const RowContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-image: linear-gradient(-220deg, #032c62, #03001c);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  height: 100%;
   width: 100%;
 `;
 
@@ -23,6 +29,7 @@ export const HeaderTitleContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 15px;
 `;
 
 export const HeaderTitle = styled.p`

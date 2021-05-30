@@ -24,6 +24,21 @@ export const Container = styled.div`
       animation: go-in 250ms forwards;
     }
   }
+
+  @media(max-width: 768px) {
+    .move-on-hover {
+      animation: none;
+    }
+    .visible-on-hover {
+      display: none;
+    }
+
+    :hover {
+      .move-on-hover {
+        animation: none;
+      }
+    }
+  }
 `;
 
 export const ArrowIcon = styled(IoIosArrowForward)`

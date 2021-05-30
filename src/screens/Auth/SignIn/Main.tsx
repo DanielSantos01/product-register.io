@@ -29,7 +29,7 @@ const Main: React.FC<MainProps> = ({ handleCheckLogin, isCheckingLogin }) => (
     <ContentContainer>
       <ScreenInfo />
 
-      <LogoContainer>
+      <LogoContainer className="hidden-md">
         <Logo />
       </LogoContainer>
     </ContentContainer>

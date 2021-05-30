@@ -7,6 +7,7 @@ import {
   HeaderTitle,
   InfoContainer,
   Description,
+  RowContainer,
 } from './styles';
 
 const Header: React.FC<HeaderProps> = ({
@@ -16,14 +17,16 @@ const Header: React.FC<HeaderProps> = ({
   description,
 }) => (
   <Container>
-    <HeaderTitleContainer>
-      {customIcon}
-      <InfoContainer>
-        <HeaderTitle>{title}</HeaderTitle>
-        {description && <Description>(Desenvolvedor)</Description>}
-      </InfoContainer>
-    </HeaderTitleContainer>
-    {children}
+    <RowContainer>
+      <HeaderTitleContainer>
+        {customIcon}
+        <InfoContainer>
+          <HeaderTitle>{title}</HeaderTitle>
+          {description && <Description>(Desenvolvedor)</Description>}
+        </InfoContainer>
+      </HeaderTitleContainer>
+      {children}
+    </RowContainer>
   </Container>
 );
 

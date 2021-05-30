@@ -7,7 +7,13 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   animation: go-down 500ms forwards;
-  overflow: hidden;
+  padding-bottom: 15px;
+
+  @media(max-width: 768px) {
+    .hidden-md {
+      display: none;
+    }
+  }
 `;
 
 export const ContentContainer = styled.div`
@@ -19,6 +25,7 @@ export const ContentContainer = styled.div`
   padding: 10px 30px;
   margin: 50px 0px;
   width: 100%;
+  z-index: -10;
 `;
 
 export const LogoContainer = styled.div`
@@ -35,6 +42,11 @@ export const InputContainer = styled.div`
   align-items: flex-end;
   justify-content: center;
   width: 50%;
+  z-index: -10;
+
+  @media(max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const RegistrationInfo = styled.p`
@@ -43,6 +55,8 @@ export const RegistrationInfo = styled.p`
   margin-top: 20px;
   font-size: 16px;
   font-weight: 800;
+  text-align: center;
+  padding: 0px 10px;
 `;
 
 export const CubeIcon = styled(IoIosCube)`

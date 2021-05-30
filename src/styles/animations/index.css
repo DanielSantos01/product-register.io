@@ -93,3 +93,25 @@
     transform: rotate(1turn);
   }
 }
+
+@keyframes show-modal {
+  from {
+    background-color: transparent;
+    transform: translateY(-100%) translateZ(0);
+  }
+  to {
+    background-color: white;
+    transform: translateY(0) translateZ(1);
+  }
+}
+
+@keyframes hide-modal {
+  from {
+    background-color: white;
+    transform: translateY(0) translateZ(1);
+  }
+  to {
+    background-color: transparent;
+    transform: translateY(-200%) translateZ(0);
+  }
+}
