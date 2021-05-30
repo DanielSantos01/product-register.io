@@ -20,7 +20,7 @@ const Main: React.FC<MainProps> = ({
   <Container>
     <Hamburguer onClick={toggleVisibilty} />
 
-    <Modal isVisible={isVisible}>
+    <Modal isVisible={isVisible} style={{ padding: 0 }}>
       <ModalManager {...rest} />
 
       <ItemContainer>

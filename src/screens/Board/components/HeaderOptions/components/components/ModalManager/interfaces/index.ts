@@ -5,4 +5,5 @@ export interface ModalManagerProps {
   toggleExit: () => void;
   toggleCreate: () => void;
   toggleEdit: () => void;
+  isMobile?: boolean;
 }

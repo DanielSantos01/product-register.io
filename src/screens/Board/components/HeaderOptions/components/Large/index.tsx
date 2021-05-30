@@ -1,41 +1,31 @@
 import React from 'react';
 
 import { MainProps } from './interfaces';
+import { ModalManager } from '../components';
 import {
   Container,
-  SignUpButton,
-  ModelContainer,
-  TextContent,
-  AuxContainer,
-  FieldInput,
+  AddIcon,
+  CloseIcon,
+  ExitIcon,
+  UpdateIcon,
 } from './styles';
 
-const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn }) => (
-  <Container>
-    <AuxContainer>
-      <ModelContainer style={{ marginRight: 10 }}>
-        <TextContent underline>About</TextContent>
-      </ModelContainer>
+const HeaderOptions: React.FC<MainProps> = (props) => {
+  const {
+    toggleCreate,
+    isCreateVisible,
+    toggleExit,
+    toggleEdit,
+  } = props;
 
-      <ModelContainer>
-        <TextContent underline>Contact Us</TextContent>
-      </ModelContainer>
-    </AuxContainer>
-
-    <AuxContainer>
-      <FieldInput placeholder="Login" className="input-login-signin" />
-
-      <FieldInput placeholder="Password" type="password" className="input-password-signin" />
-
-      <ModelContainer style={{ marginRight: 10 }} onClick={handleSignIn}>
-        <TextContent underline>Sign In</TextContent>
-      </ModelContainer>
-
-      <SignUpButton onClick={goToSignUp}>
-        <TextContent>Sign Up</TextContent>
-      </SignUpButton>
-    </AuxContainer>
-  </Container>
-);
+  return (
+    <Container>
+      <ModalManager {...props} isMobile={false} />
+      {!isCreateVisible ? <AddIcon onClick={toggleCreate} /> : <CloseIcon onClick={toggleCreate} />}
+      <UpdateIcon onClick={toggleEdit} />
+      <ExitIcon onClick={toggleExit} />
+    </Container>
+  );
+};
 
 export default HeaderOptions;

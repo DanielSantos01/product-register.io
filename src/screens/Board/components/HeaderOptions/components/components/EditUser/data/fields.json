@@ -1,0 +1,14 @@
+[
+  {
+    "name": "role",
+    "id": "user-edit-role",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "name",
+    "id": "user-edit-name",
+    "isRequired": true,
+    "type": "text"
+  }
+]

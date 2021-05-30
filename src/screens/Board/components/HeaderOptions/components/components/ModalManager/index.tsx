@@ -4,6 +4,7 @@ import { ModalManagerProps } from './interfaces';
 import AskExit from '../AskExit';
 import CreateItem from '../CreateItem';
 import EditUser from '../EditUser';
+import { Container } from './styles';
 
 const ModalManager: React.FC<ModalManagerProps> = ({
   isCreateVisible,
@@ -12,11 +13,12 @@ const ModalManager: React.FC<ModalManagerProps> = ({
   toggleCreate,
   toggleEdit,
   toggleExit,
+  isMobile = true,
 }) => (
   <>
-    <AskExit isVisible={isExitVisible} toggleVisibility={toggleExit} />
-    <CreateItem isVisible={isCreateVisible} toggleVisibility={toggleCreate} />
-    <EditUser isVisible={isEditVisible} toggleVisibility={toggleEdit} />
+    <AskExit isVisible={isExitVisible} toggleVisibility={toggleExit} isMobile={isMobile} />
+    <CreateItem isVisible={isCreateVisible} toggleVisibility={toggleCreate} isMobile={isMobile} />
+    <EditUser isVisible={isEditVisible} toggleVisibility={toggleEdit} isMobile={isMobile} />
   </>
 );
 

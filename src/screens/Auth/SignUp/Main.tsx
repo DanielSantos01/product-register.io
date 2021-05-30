@@ -1,15 +1,13 @@
 import React from 'react';
 
-import { Loader } from '@components/Loader/styles';
+import { BackButton, ConfirmButton } from '@components/Button';
 import { MainProps } from './interfaces';
-import { Fields, ConfirmContent, BackContent } from './components';
+import { Fields } from './components';
 import {
   Container,
   Title,
   Description,
   ContentContainer,
-  ConfirmButton,
-  BackButton,
 } from './styles';
 
 const Main: React.FC<MainProps> = ({ handleReturn, handleSignUp, isSubmiting }) => (
@@ -21,13 +19,9 @@ const Main: React.FC<MainProps> = ({ handleReturn, handleSignUp, isSubmiting }) 
     <ContentContainer>
       <Fields />
 
-      <ConfirmButton onClick={handleSignUp}>
-        {isSubmiting ? <Loader /> : <ConfirmContent />}
-      </ConfirmButton>
+      <ConfirmButton onClick={handleSignUp} isLoading={isSubmiting} />
 
-      <BackButton onClick={handleReturn}>
-        <BackContent />
-      </BackButton>
+      <BackButton onClick={handleReturn} />
     </ContentContainer>
   </Container>
 );

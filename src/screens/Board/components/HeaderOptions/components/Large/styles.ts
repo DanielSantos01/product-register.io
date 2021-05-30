@@ -1,6 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 import styled from 'styled-components';
+import {
+  IoIosAddCircle,
+  IoIosCloseCircle,
+  IoMdExit,
+  IoIosBuild,
+} from 'react-icons/io';
 
 type OptionalProps = {
   underline?: boolean;
@@ -9,73 +15,59 @@ type OptionalProps = {
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-left: 20px;
   width: 100%;
 `;
 
-export const AuxContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const ModelContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 38px;
-  min-width: 90px;
-  padding: 10px;
-  transition: 400ms;
-  transform: scale(0.98);
+export const AddIcon = styled(IoIosAddCircle)`
+  font-size: 35px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 250ms;
+  color: ${({ theme }) => theme.colors.lighterGreen};
+  margin: 0px 15px;
 
   :hover {
-    cursor: pointer;
+    opacity: 1;
   }
 `;
 
-export const SignUpButton = styled(ModelContainer)`
-  border-radius: 10px;
-  border: 1px solid ${({ theme }) => theme.colors.borderLight};
+export const CloseIcon = styled(IoIosCloseCircle)`
+  font-size: 35px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 250ms;
+  color: red;
+  margin: 0px 15px;
 
   :hover {
-    transform: scale(1);
-    cursor: pointer;
-  }
-
-  :active {
-    transform: scale(0.98);
+    opacity: 1;
   }
 `;
 
-export const TextContent = styled.p<OptionalProps>`
-  font-family: ${({ theme }) => theme.fonts.primary};
+export const ExitIcon = styled(IoMdExit)`
+  font-size: 30px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 250ms;
   color: white;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 2px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  
+  margin: 0px 15px;
+
   :hover {
-    text-decoration: ${({ underline }) => (underline ? 'underline;' : 'none;')};
+    opacity: 1;
   }
 `;
 
-export const FieldInput = styled.input`
-  width: 180px;
-  height: 38px;
-  border-radius: 10px;
-  background-color: #2a3044;
-  outline: none;
-  font-size: 12px;
-  padding: 18px 10px;
+export const UpdateIcon = styled(IoIosBuild)`
+  font-size: 30px;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 250ms;
   color: white;
-  font-family: ${({ theme }) => theme.fonts.terciary};
-  border: none;
-  margin-right: 15px;
+  margin: 0px 15px;
+
+  :hover {
+    opacity: 1;
+  }
 `;

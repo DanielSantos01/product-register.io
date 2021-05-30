@@ -6,20 +6,26 @@ import { useAuth } from '@hooks/Auth';
 import Main from './Main';
 
 const HeaderOptions: React.FC = () => {
-  const [isExitVisible, setExitVisible] = useState<boolean>(false);
+  const [isExitVisible, setExitVisibulity] = useState<boolean>(false);
   const [isCreateVisible, setCreateVisibility] = useState<boolean>(false);
   const [isUpdateVisible, setUpdateVisibility] = useState<boolean>(false);
-  const shouldCollapse: boolean = useMediaQuery({ maxWidth: 1024 });
+  const shouldCollapse: boolean = useMediaQuery({ maxWidth: 450 });
 
   const toggleExitVisibility = useCallback(() => {
-    setExitVisible(!isExitVisible);
+    setUpdateVisibility(false);
+    setCreateVisibility(false);
+    setExitVisibulity(!isExitVisible);
   }, [isExitVisible]);
 
   const toggleUpdateVisibility = useCallback(() => {
+    setCreateVisibility(false);
+    setExitVisibulity(false);
     setUpdateVisibility(!isUpdateVisible);
   }, [isUpdateVisible]);
 
   const toggleCreateVisibility = useCallback(() => {
+    setUpdateVisibility(false);
+    setExitVisibulity(false);
     setCreateVisibility(!isCreateVisible);
   }, [isCreateVisible]);
 

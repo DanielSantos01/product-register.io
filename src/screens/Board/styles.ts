@@ -4,13 +4,20 @@ import { IoMdPerson } from 'react-icons/io';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 1;
   width: 100%;
-  height: 100%;
+  height: ${window.innerHeight}px;
+  overflow: hidden;
 `;
 
 export const UserIcon = styled(IoMdPerson)`
   font-size: 25px;
   margin-bottom: 2px;
   color: white;
+`;
+
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
 `;

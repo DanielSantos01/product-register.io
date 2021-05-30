@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Header from '@components/Header';
-import { HeaderOptions } from './components';
-import { UserIcon, Container } from './styles';
+import { HeaderOptions, Sidebar, MainBoard } from './components';
+import { UserIcon, Container, ContentContainer } from './styles';
 
 const Main: React.FC = () => (
   <Container>
@@ -13,6 +13,11 @@ const Main: React.FC = () => (
     >
       <HeaderOptions />
     </Header>
+
+    <ContentContainer>
+      <Sidebar />
+      <MainBoard />
+    </ContentContainer>
   </Container>
 );
 
