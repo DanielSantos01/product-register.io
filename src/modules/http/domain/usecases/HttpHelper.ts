@@ -13,25 +13,25 @@ class HttpHelper implements IHttpHelper {
 
   constructor(httpClient: IHttpClient) {
     this.httpClient = httpClient;
-    this.create = this.create.bind(this);
-    this.read = this.read.bind(this);
-    this.update = this.update.bind(this);
+    this.post = this.post.bind(this);
+    this.get = this.get.bind(this);
+    this.patch = this.patch.bind(this);
     this.delete = this.delete.bind(this);
   }
 
-  async create<T>(createParams: IHttpDataParams): Promise<HttpResponse<T>> {
+  async post<T>(createParams: IHttpDataParams): Promise<HttpResponse<T>> {
     const { url, body } = createParams;
     const urlencoded: URLSearchParams = this.parse(body);
     const response: HttpResponse<T> = await this.httpClient.post<T>({ url, body: urlencoded });
     return response;
   }
 
-  async read<T>(readParams: IHttpNoDataParams): Promise<HttpResponse<T>> {
+  async get<T>(readParams: IHttpNoDataParams): Promise<HttpResponse<T>> {
     const response: HttpResponse<T> = await this.httpClient.get<T>(readParams);
     return response;
   }
 
-  async update<T>(updateParams: IHttpDataParams): Promise<HttpResponse<T>> {
+  async patch<T>(updateParams: IHttpDataParams): Promise<HttpResponse<T>> {
     const { body, url } = updateParams;
     const urlencoded: URLSearchParams = this.parse(body);
     const response: HttpResponse<T> = await this.httpClient.patch<T>({ url, body: urlencoded });

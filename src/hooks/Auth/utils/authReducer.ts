@@ -4,13 +4,12 @@ export const authReducer: AuthReducer = (state, action) => {
   switch (action.type) {
     case 'manage_flags':
       return {
-        userData: state.userData,
-        isLoading: action.isLoading,
-        hasUserData: action.hasUserData,
+        ...state,
+        ...action,
       };
     case 'set_user':
       return { ...state, userData: action.user };
-    case 'remove_user':
+    case 'clear_user_data':
       return {
         isLoading: false,
         hasUserData: false,

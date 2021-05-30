@@ -7,9 +7,7 @@ export interface IHttpNoDataParams {
   url: string;
 }
 
-export interface IHttpHelperBodyParams {
-  [paramKey: string]: string;
-}
+export type IHttpHelperBodyParams = any;
 
 export interface HttpHelperResponse<T> {
   statusCode: number;
