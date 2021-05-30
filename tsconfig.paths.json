@@ -9,7 +9,8 @@
       "@services/*": ["services/*"],
       "@screens/*": ["screens/*"],
       "@components/*": ["components/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@hooks/*": ["hooks/*"]
     }
   }
 }

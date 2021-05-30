@@ -18,7 +18,7 @@
 
 @keyframes move-front {
   from {
-    transform: translateX(-140%);
+    transform: translateX(-120%);
   }
   to {
     transform: translateX(0);
@@ -30,7 +30,7 @@
     transform: translateX(0);
   }
   to {
-    transform: translateX(-140%);
+    transform: translateX(-120%);
   }
 }
 
