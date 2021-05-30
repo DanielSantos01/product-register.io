@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { IoIosCube } from 'react-icons/io';
 
 export const Container = styled.div`
   padding: 5px 25px;
@@ -13,17 +12,17 @@ export const Container = styled.div`
   width: 100%;
 `;
 
+export const InfoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const HeaderTitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-`;
-
-export const CubeIcon = styled(IoIosCube)`
-  font-size: 25px;
-  margin-bottom: 2px;
-  color: white;
 `;
 
 export const HeaderTitle = styled.p`
@@ -32,4 +31,10 @@ export const HeaderTitle = styled.p`
   font-weight: 600;
   color: white;
   padding-left: 10px;
+`;
+
+export const Description = styled.p`
+  font-family: ${({ theme }) => theme.fonts.terciary};
+  font-size: 11px;
+  color: white;
 `;

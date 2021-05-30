@@ -17,11 +17,12 @@ import {
   InputContainer,
   LogoContainer,
   RegistrationInfo,
+  CubeIcon,
 } from './styles';
 
 const Main: React.FC<MainProps> = ({ handleCheckLogin, isCheckingLogin }) => (
   <Container>
-    <Header>
+    <Header customIcon={<CubeIcon />} title="ProductRegister.io">
       <HeaderOptions />
     </Header>
 

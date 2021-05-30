@@ -13,8 +13,8 @@ const AppRoutes: React.FC<RouteProps> = () => {
   const { path } = useRouteMatch();
   return (
     <Switch>
-      <Route path={`${path}/ulala`} component={Board} />
-      <Redirect to={`${path}/ulala`} />
+      <Route path={`${path}/`} component={Board} />
+      <Redirect to={`${path}/`} />
     </Switch>
   );
 };

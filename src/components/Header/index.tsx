@@ -1,17 +1,27 @@
 import React from 'react';
 
+import { HeaderProps } from './interfaces';
 import {
   Container,
   HeaderTitleContainer,
-  CubeIcon,
   HeaderTitle,
+  InfoContainer,
+  Description,
 } from './styles';
 
-const Header: React.FC = ({ children }) => (
+const Header: React.FC<HeaderProps> = ({
+  children,
+  customIcon,
+  title,
+  description,
+}) => (
   <Container>
     <HeaderTitleContainer>
-      <CubeIcon />
-      <HeaderTitle>ProductRegister.io</HeaderTitle>
+      {customIcon}
+      <InfoContainer>
+        <HeaderTitle>{title}</HeaderTitle>
+        {description && <Description>(Desenvolvedor)</Description>}
+      </InfoContainer>
     </HeaderTitleContainer>
     {children}
   </Container>

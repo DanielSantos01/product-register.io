@@ -7,6 +7,6 @@ export const Loader = styled.div<LoaderProps>`
   border: ${({ contentWidth }) => (contentWidth ? `${contentWidth}px` : '4px')} solid transparent;
   border-radius: 50%;
   border-top-color: ${({ color }) => color || '#fff'};
-  height: ${({ size }) => (size ? `${size}px` : '35px;')};
-  width: ${({ size }) => (size ? `${size}px` : '35px;')};
+  height: ${({ size }) => (size ? `${size}px` : '30px;')};
+  width: ${({ size }) => (size ? `${size}px` : '30px;')};
 `;

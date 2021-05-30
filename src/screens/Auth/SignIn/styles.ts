@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IoIosCube } from 'react-icons/io';
 
 export const Container = styled.div`
   display: flex;
@@ -42,4 +43,10 @@ export const RegistrationInfo = styled.p`
   margin-top: 20px;
   font-size: 16px;
   font-weight: 800;
+`;
+
+export const CubeIcon = styled(IoIosCube)`
+  font-size: 25px;
+  margin-bottom: 2px;
+  color: white;
 `;

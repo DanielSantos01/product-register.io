@@ -1,5 +1,7 @@
 import React from 'react';
 
-const Board: React.FC = () => <div><p>opaaa</p></div>;
+import Main from './Main';
+
+const Board: React.FC = () => <Main />;
 
 export default Board;
