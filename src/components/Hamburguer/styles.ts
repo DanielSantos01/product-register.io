@@ -10,6 +10,7 @@ export const Container = styled.div`
   cursor: pointer;
   border-radius: 6px;
   opacity: 0.6;
+  margin-right: 15px;
 
   :active {
     opacity: 0.5;

@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "asdhasdjhbwekdjwmjd",
+    "name": "Boneco",
+    "price": "245",
+    "quantity": "1",
+    "ownerId": "2345678",
+    "description": "some description",
+    "createdAt": "20/08/2021",
+    "updatedAt": "30/08/2021"
+  }
+]

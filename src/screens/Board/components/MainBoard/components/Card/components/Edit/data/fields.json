@@ -1,0 +1,26 @@
+[
+  {
+    "name": "name",
+    "id": "item-edit-name",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "price",
+    "id": "item-edit-price",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "quantity",
+    "id": "item-edit-quantity",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "description",
+    "id": "item-edit-description",
+    "isRequired": false,
+    "type": "text"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "name",
+    "id": "create-item-name",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "category",
+    "id": "create-item-category",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "price",
+    "id": "create-item-price",
+    "isRequired": true,
+    "type": "text"
+  },
+  {
+    "name": "quantity",
+    "id": "create-item-quantity",
+    "isRequired": true,
+    "type": "text"
+  }
+  ,{
+    "name": "description",
+    "id": "create-item-desctiption",
+    "isRequired": false,
+    "type": "text"
+  }
+]

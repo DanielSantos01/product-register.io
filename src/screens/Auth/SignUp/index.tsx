@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { SignUpDataModel } from '@hooks/Auth/interfaces';
 import { useAuth } from '@hooks/Auth';
@@ -9,8 +10,11 @@ import Main from './Main';
 
 const SignUp: React.FC = () => {
   const [isSubmiting, setSubmiting] = useState<boolean>(false);
-  const { goBack } = useHistory();
+  const { goBack, location } = useHistory<any>();
   const { signUp } = useAuth();
+  const { login } = location.state;
+  const defaultValues: string[] = [];
+  defaultValues[2] = login;
 
   const handleReturn = useCallback(() => {
     goBack();
@@ -29,22 +33,33 @@ const SignUp: React.FC = () => {
     return [isValid, signUpData];
   }, []);
 
-  // TODO - TOAST MESSAGE
+  const handleResult = useCallback((wasCreated: boolean) => {
+    if (!wasCreated) {
+      toast('Unable to resolve the action. Please, try again later...');
+      return;
+    }
+    handleReturn();
+    toast('Account created successfully!! Now, you just need to SignIn :)');
+  }, [handleReturn]);
+
   const handleSignUp = useCallback(async () => {
     setSubmiting(true);
     const [isValid, signUpData] = handleFields();
     if (isValid) {
       const wasCreated: boolean = await signUp(signUpData as SignUpDataModel);
-      if (wasCreated) handleReturn();
+      handleResult(wasCreated);
+    } else {
+      toast('Invalid submit! Please, verify the required fields...');
     }
     setSubmiting(false);
-  }, []);
+  }, [handleFields, handleResult]);
 
   return (
     <Main
       handleReturn={handleReturn}
       handleSignUp={handleSignUp}
       isSubmiting={isSubmiting}
+      defaultValues={defaultValues}
     />
   );
 };

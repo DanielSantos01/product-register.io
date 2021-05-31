@@ -6,7 +6,7 @@ export const FieldInput = styled(Input)`
   width: 100%;
   margin: 0;
   border: 0;
-  background-color: ${({ theme }) => theme.colors.discretGrey};
+  background-color: rgba(0, 0, 0, 0.07);
   transition: background 300ms;
 
   :focus {

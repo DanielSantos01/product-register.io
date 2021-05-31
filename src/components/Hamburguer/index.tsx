@@ -8,9 +8,11 @@ const Hamburguer: React.FC<HamburguerProps> = ({ onClick }) => (
     <LineContainer>
       <Line />
     </LineContainer>
+
     <LineContainer>
       <Line />
     </LineContainer>
+
     <LineContainer>
       <Line />
     </LineContainer>

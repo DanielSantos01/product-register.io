@@ -13,6 +13,7 @@ export interface AuthContextData {
   isLoading: boolean;
   hasUserData: boolean
   userData: User;
+  position: number;
   signIn: (data: AcessDataModel) => Promise<boolean>;
   signUp: (data: SignUpDataModel) => Promise<boolean>;
   update: (data: UpdateDataModel) => Promise<boolean>;
@@ -24,6 +25,7 @@ export interface AuthStateData {
   isLoading: boolean;
   hasUserData: boolean;
   userData: User;
+  userPosition: number;
 }
 
 export interface AcessDataModel {
@@ -45,7 +47,7 @@ export interface UpdateDataModel {
 }
 
 export type AuthActions =
-  |{ type: 'set_user', user: User }
+  |{ type: 'set_user', user: User, position: number }
   |{ type: 'manage_flags', isLoading?: boolean; hasUserData?: boolean }
   |{ type: 'clear_user_data'};
 

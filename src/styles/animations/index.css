@@ -93,3 +93,47 @@
     transform: rotate(1turn);
   }
 }
+
+@keyframes show-modal {
+  from {
+    background-color: transparent;
+    z-index: -100;
+    transform: translateY(-100%) translateZ(0);
+  }
+  to {
+    background-color: white;
+    z-index: 100;
+    transform: translateY(0) translateZ(100%);
+  }
+}
+
+@keyframes hide-modal {
+  from {
+    background-color: white;
+    z-index: 100;
+    transform: translateY(0) translateZ(100%);
+  }
+  to {
+    background-color: transparent;
+    z-index: -100;
+    transform: translateY(-200%) translateZ(0);
+  }
+}
+
+@keyframes rotate90 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@keyframes rotate-90 {
+  from {
+    transform: rotate(90deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}

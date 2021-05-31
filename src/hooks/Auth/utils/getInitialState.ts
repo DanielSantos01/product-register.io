@@ -5,6 +5,7 @@ export const getInitialState = (): AuthStateData => {
     isLoading: false,
     hasUserData: false,
     userData: {} as User,
+    userPosition: -1,
   };
   return initialState;
 };
