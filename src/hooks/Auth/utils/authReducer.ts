@@ -8,12 +8,13 @@ export const authReducer: AuthReducer = (state, action) => {
         ...action,
       };
     case 'set_user':
-      return { ...state, userData: action.user };
+      return { ...state, userData: action.user, userPosition: action.position };
     case 'clear_user_data':
       return {
         isLoading: false,
         hasUserData: false,
         userData: {} as User,
+        userPosition: -1,
       };
     default:
       return state;
