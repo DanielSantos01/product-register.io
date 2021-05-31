@@ -34,4 +34,5 @@ export const SmallStyle: React.CSSProperties = {
   height: '100%',
   padding: 0,
   top: 0,
+  zIndex: 999,
 };

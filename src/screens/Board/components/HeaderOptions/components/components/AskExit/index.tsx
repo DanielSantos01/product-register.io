@@ -2,6 +2,7 @@ import React from 'react';
 
 import Modal from '@components/Modal';
 import { BackButton, ConfirmButton } from '@components/Button';
+import { COLORS } from '@styles/theme/colors';
 import { MainProps } from './interfaces';
 import {
   Container,
@@ -26,12 +27,12 @@ const Main: React.FC<MainProps> = ({ isVisible, toggleVisibility, isMobile }) =>
       <ButtonsContainer>
         <BackButton
           onClick={toggleVisibility}
-          style={{ width: 120, marginRight: 15 }}
+          style={{ width: 120, marginRight: 15, background: COLORS.lighterGreen }}
         />
 
         <ConfirmButton
           onClick={() => {}}
-          style={{ background: 'rgba(220, 0, 0, 0.9)', width: 120 }}
+          style={{ background: 'rgba(220, 0, 0, 0.85)', width: 120 }}
         />
       </ButtonsContainer>
     </Container>
