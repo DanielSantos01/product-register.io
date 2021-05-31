@@ -9,6 +9,7 @@ export interface BaseItemModel {
 }
 
 export interface OptionalBaseItemModel {
+  id?: string;
   name?: string;
   quantity?: string;
   ownerId?: string;
@@ -29,7 +30,7 @@ export interface ItemContextData {
   items: Item[];
   create: (data: BaseItemModel) => Promise<boolean>;
   deleteItem: (itemId: string, ownerId: string) => Promise<boolean>;
-  update: (id: string, data: OptionalBaseItemModel) => Promise<boolean>;
+  update: (data: OptionalBaseItemModel) => Promise<boolean>;
   clearData: () => void;
   // query: (ownerId: string) => Promise<void>;
 }

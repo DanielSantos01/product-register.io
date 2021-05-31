@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { IoMdPricetag } from 'react-icons/io';
+import { FiEdit, FiTrash2 } from 'react-icons/fi';
 
 export const Container = styled.div`
   display: flex;
@@ -9,14 +10,24 @@ export const Container = styled.div`
   background-color: white;
   width: 100%;
   border-radius: 10px;
-  cursor: pointer;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
   padding: 10px;
   margin-bottom: 20px;
   overflow: hidden;
+  transition: 200ms;
+
+  .visible-on-hover {
+    display: none;
+  }
 
   @media(max-width: 768px) {
     border-radius: 0px;
+  }
+
+  :hover {
+    .visible-on-hover {
+      display: block;
+    }
   }
 `;
 
@@ -71,4 +82,26 @@ export const TagIcon = styled(IoMdPricetag)`
   color: ${({ theme }) => theme.colors.lighterGreen};
   margin-top: 2px;
   margin-right: 5px;
+`;
+
+export const EditIcon = styled(FiEdit)`
+  font-size: 18px;
+  color: ${({ theme }) => theme.colors.titleGrey};
+  cursor: pointer;
+  position: absolute;
+  right: 70px;
+`;
+
+export const DeleteIcon = styled(FiTrash2)`
+  font-size: 18px;
+  color: red;
+  opacity: 0.8;
+  cursor: pointer;
+  position: absolute;
+  right: 35px;
+`;
+
+export const AuxContainer = styled.div`
+  width: 10px;
+  overflow: hidden;
 `;

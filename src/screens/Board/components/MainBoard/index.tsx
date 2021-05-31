@@ -15,7 +15,7 @@ const MainBoard: React.FC = () => {
   const hasItems: boolean = !!items.length;
 
   return (
-    <Container>
+    <Container className="foo">
       {itemsList}
     </Container>
   );

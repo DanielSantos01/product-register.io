@@ -1,49 +1,31 @@
-import React from 'react';
-import moment from 'moment';
+import React, { useState, useCallback } from 'react';
 
 import { CardProps } from './interfaces';
-import {
-  Container,
-  LeftContainer,
-  RightContaner,
-  RowContainer,
-  TextContent,
-  TagIcon,
-  Desciption,
-} from './styles';
+import Main from './Main';
 
-const Card: React.FC<CardProps> = ({ item }) => (
-  <Container>
-    <LeftContainer>
-      <RightContaner>
-        <RowContainer>
-          <TagIcon />
-          <TextContent style={{ paddingLeft: 0 }}>Toys</TextContent>
-        </RowContainer>
+const Card: React.FC<CardProps> = ({ item }) => {
+  const [isEditVisible, setEditVisible] = useState<boolean>(false);
+  const [isDeleteVisible, setDeleteVisible] = useState<boolean>(false);
 
-        <RowContainer>
-          <TextContent>{item.name}</TextContent>
-          <TextContent>{`R$: ${item.price}`}</TextContent>
-        </RowContainer>
+  const toggleEditVisibility = useCallback(() => {
+    setDeleteVisible(false);
+    setEditVisible(!isEditVisible);
+  }, [isEditVisible]);
 
-        <TextContent>{`Quantity: ${item.quantity}`}</TextContent>
-      </RightContaner>
+  const toggleDeleteVisibility = useCallback(() => {
+    setEditVisible(false);
+    setDeleteVisible(!isDeleteVisible);
+  }, [isDeleteVisible]);
 
-      {item.description && (
-        <RightContaner>
-          <Desciption>{item.description}</Desciption>
-        </RightContaner>
-      )}
-    </LeftContainer>
-
-    <RightContaner>
-      <TextContent style={{ paddingLeft: 0, marginTop: 'auto' }}>
-        Created at
-        {' '}
-        {moment(item.createdAt).format('DD/MM/YYYY')}
-      </TextContent>
-    </RightContaner>
-  </Container>
-);
+  return (
+    <Main
+      item={item}
+      isDeleteVisible={isDeleteVisible}
+      isEditVisible={isEditVisible}
+      toggleDelete={toggleDeleteVisibility}
+      toggleEdit={toggleEditVisibility}
+    />
+  );
+};
 
 export default Card;

@@ -1,17 +1,7 @@
 import React from 'react';
 
-import Modal from '@components/Modal';
-import { BackButton, ConfirmButton } from '@components/Button';
-import { COLORS } from '@styles/theme/colors';
+import AskModal from '@components/AskModal';
 import { MainProps } from './interfaces';
-import {
-  Container,
-  LargeStyle,
-  SmallStyle,
-  Title,
-  Description,
-} from '../styles';
-import { ButtonsContainer } from './styles';
 
 const Main: React.FC<MainProps> = ({
   isVisible,
@@ -19,29 +9,14 @@ const Main: React.FC<MainProps> = ({
   isMobile,
   handleSignOut,
 }) => (
-  <Modal
+  <AskModal
+    isMobile={isMobile}
     isVisible={isVisible}
-    style={isMobile ? SmallStyle : LargeStyle}
-  >
-    <Container>
-      <Title>Exit</Title>
-      <Description>
-        {`You choose the "Exit" option. By confirming the action, your section will be
-        ended and you will be redirected to the SignIn page. Do you confirm your choice?`}
-      </Description>
-      <ButtonsContainer>
-        <BackButton
-          onClick={toggleVisibility}
-          style={{ width: 120, marginRight: 15, background: COLORS.lighterGreen }}
-        />
-
-        <ConfirmButton
-          onClick={handleSignOut}
-          style={{ background: 'rgba(220, 0, 0, 0.85)', width: 120 }}
-        />
-      </ButtonsContainer>
-    </Container>
-  </Modal>
+    title="Exit"
+    description="Your choose the 'Exit' option. By confirming the action, you will be loged out. Do you confirm?"
+    onConfirm={handleSignOut}
+    toggleVisibility={toggleVisibility}
+  />
 );
 
 export default Main;

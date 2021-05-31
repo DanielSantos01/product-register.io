@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable no-underscore-dangle */
 import React, {
   createContext,
@@ -49,15 +50,14 @@ export const ItemsProvider: React.FC = ({ children }) => {
     return hasSuccess;
   }, []);
 
-  const update = useCallback(async (id: string, data: OptionalBaseItemModel) => {
-    dispatch({ type: 'set_loading', isLoading: true });
+  const update = useCallback(async (data: OptionalBaseItemModel) => {
     const url: string = mountUrl('/item');
     const response: HttpHelperResponse<Item[]> = await AppHttpHelper.patch<Item[]>(
-      { url, body: { ...data, id } },
+      { url, body: { ...data } },
     );
-    const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
+    const hasSuccess: boolean =
+      response.statusCode === HttpStatusCode.OK && !!Object.keys(response.body).length;
     if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
-    dispatch({ type: 'set_loading', isLoading: false });
     return hasSuccess;
   }, []);
 

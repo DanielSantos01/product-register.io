@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { BackButton, ConfirmButton } from '@components/Button';
 import Header from '@components/Header';
 import { MainProps } from './interfaces';
 import { HeaderOptions, Sidebar, MainBoard } from './components';

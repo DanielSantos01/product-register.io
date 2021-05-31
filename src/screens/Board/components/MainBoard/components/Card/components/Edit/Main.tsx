@@ -8,16 +8,19 @@ const Main: React.FC<MainProps> = ({
   isVisible,
   toggleVisibility,
   isMobile,
-  handleCreateItem,
+  defaultValues,
+  handleUpdate,
 }) => (
   <FieldsModal
-    description="Fill in the required fields to register an item"
-    title="Register item"
+    title="Update Item"
+    description="Fill te required fields to update the item data"
     fields={fields}
-    handleConfirm={handleCreateItem}
+    handleConfirm={handleUpdate}
     isMobile={isMobile}
     isVisible={isVisible}
     toggleVisibility={toggleVisibility}
+    defaultValues={defaultValues}
+    optionalStyles={{ width: document.querySelector<any>('.foo')?.offsetWidth }}
   />
 );
 
