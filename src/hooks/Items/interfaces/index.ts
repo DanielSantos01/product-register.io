@@ -5,6 +5,7 @@ export interface BaseItemModel {
   ownerId: string;
   category: string;
   price: string;
+  description?: string;
 }
 
 export interface OptionalBaseItemModel {
@@ -13,6 +14,7 @@ export interface OptionalBaseItemModel {
   ownerId?: string;
   category?: string;
   price?: string;
+  description?: string;
 }
 
 export interface Item extends BaseItemModel {
@@ -25,9 +27,9 @@ export interface Item extends BaseItemModel {
 export interface ItemContextData {
   isLoading: boolean;
   items: Item[];
-  create: (data: BaseItemModel) => Promise<void>;
-  deleteItem: (itemId: string, ownerId: string) => Promise<void>;
-  update: (id: string, data: OptionalBaseItemModel) => Promise<void>;
+  create: (data: BaseItemModel) => Promise<boolean>;
+  deleteItem: (itemId: string, ownerId: string) => Promise<boolean>;
+  update: (id: string, data: OptionalBaseItemModel) => Promise<boolean>;
   clearData: () => void;
   // query: (ownerId: string) => Promise<void>;
 }

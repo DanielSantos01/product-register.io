@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
+import { ItemsProvider } from '@hooks/Items';
 import { useAuth } from '@hooks/Auth';
 import Main from './Main';
 
@@ -16,4 +17,10 @@ const Board: React.FC = () => {
   return <Main userName={name} userRole={role} />;
 };
 
-export default Board;
+const EnhancedBoard: React.FC = () => (
+  <ItemsProvider>
+    <Board />
+  </ItemsProvider>
+);
+
+export default EnhancedBoard;

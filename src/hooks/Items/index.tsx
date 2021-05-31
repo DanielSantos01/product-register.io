@@ -40,15 +40,13 @@ export const ItemsProvider: React.FC = ({ children }) => {
   }, []);
 
   const create = useCallback(async (data: BaseItemModel) => {
-    dispatch({ type: 'set_loading', isLoading: true });
     const url: string = mountUrl('/item/create');
     const response: HttpHelperResponse<Item[]> = await AppHttpHelper.post<Item[]>(
       { url, body: data },
     );
-    if (response.statusCode === HttpStatusCode.OK) {
-      dispatch({ type: 'set_items', items: response.body });
-    }
-    dispatch({ type: 'set_loading', isLoading: false });
+    const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
+    if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
+    return hasSuccess;
   }, []);
 
   const update = useCallback(async (id: string, data: OptionalBaseItemModel) => {
@@ -57,20 +55,20 @@ export const ItemsProvider: React.FC = ({ children }) => {
     const response: HttpHelperResponse<Item[]> = await AppHttpHelper.patch<Item[]>(
       { url, body: { ...data, id } },
     );
-    if (response.statusCode === HttpStatusCode.OK) {
-      dispatch({ type: 'set_items', items: response.body });
-    }
+    const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
+    if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
     dispatch({ type: 'set_loading', isLoading: false });
+    return hasSuccess;
   }, []);
 
   const deleteItem = useCallback(async (id: string, ownerId: string) => {
     dispatch({ type: 'set_loading', isLoading: true });
     const url: string = mountUrl(`/item/delete?id=${id}&ownerId=${ownerId}`);
     const response: HttpHelperResponse<Item[]> = await AppHttpHelper.delete<Item[]>({ url });
-    if (response.statusCode === HttpStatusCode.OK) {
-      dispatch({ type: 'set_items', items: response.body });
-    }
+    const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
+    if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
     dispatch({ type: 'set_loading', isLoading: false });
+    return hasSuccess;
   }, []);
 
   const clearData = useCallback(() => {

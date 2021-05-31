@@ -44,6 +44,10 @@ export const AuthProvider: React.FC = ({ children }) => {
     );
   }, []);
 
+  const removeLocalData = useCallback(() => {
+    window.localStorage.removeItem(APP_CONSTANTS.LOCAL_USER_KEY);
+  }, []);
+
   const handleSignIn = useCallback((data: HttpHelperResponse<User[]>) => {
     const { body, statusCode } = data;
     const hasError: boolean = statusCode !== HttpStatusCode.OK;
@@ -105,8 +109,8 @@ export const AuthProvider: React.FC = ({ children }) => {
   const logOut = useCallback(async () => {
     dispatch({ type: 'clear_user_data' });
     dispatch({ type: 'manage_flags', isLoading: false, hasUserData: false });
-    window.localStorage.removeItem(APP_CONSTANTS.LOCAL_USER_KEY);
-  }, []);
+    removeLocalData();
+  }, [removeLocalData]);
 
   useEffect(() => {
     checkLocalData();

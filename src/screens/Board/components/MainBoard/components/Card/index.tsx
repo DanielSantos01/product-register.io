@@ -1,5 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 
+import { CardProps } from './interfaces';
 import {
   Container,
   LeftContainer,
@@ -10,7 +12,7 @@ import {
   Desciption,
 } from './styles';
 
-const Card: React.FC = () => (
+const Card: React.FC<CardProps> = ({ item }) => (
   <Container>
     <LeftContainer>
       <RightContaner>
@@ -20,20 +22,26 @@ const Card: React.FC = () => (
         </RowContainer>
 
         <RowContainer>
-          <TextContent>Buzz</TextContent>
-          <TextContent>R$: 300,00</TextContent>
+          <TextContent>{item.name}</TextContent>
+          <TextContent>{`R$: ${item.price}`}</TextContent>
         </RowContainer>
 
-        <TextContent>Quantity: 250</TextContent>
+        <TextContent>{`Quantity: ${item.quantity}`}</TextContent>
       </RightContaner>
 
-      <RightContaner>
-        <Desciption>Boneco de ação e aventura, inimigo do zurg</Desciption>
-      </RightContaner>
+      {item.description && (
+        <RightContaner>
+          <Desciption>{item.description}</Desciption>
+        </RightContaner>
+      )}
     </LeftContainer>
 
     <RightContaner>
-      <TextContent style={{ paddingLeft: 0, marginTop: 'auto' }}>Created at: 31/05/21</TextContent>
+      <TextContent style={{ paddingLeft: 0, marginTop: 'auto' }}>
+        Created at
+        {' '}
+        {moment(item.createdAt).format('DD/MM/YYYY')}
+      </TextContent>
     </RightContaner>
   </Container>
 );

@@ -6,8 +6,8 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.05);
-  padding: 10px;
-  overflow: hidden;
+  padding: 10px 10px 20px 10px;
+  overflow-y: scroll;
 
   @media(max-width: 768px) {
     padding: 10px 0px;

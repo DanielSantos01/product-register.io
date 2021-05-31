@@ -24,7 +24,7 @@ const EditUser: React.FC<EditUserProps> = (props) => {
   }, []);
 
   const handleValidate = useCallback((data: UpdateDataModel) => {
-    if (!Object.keys(data).length) {
+    if (Object.keys(data).length !== fields.length) {
       toast('Unable to update without required values');
       return false;
     }

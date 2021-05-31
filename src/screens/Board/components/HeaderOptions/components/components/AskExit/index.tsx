@@ -1,42 +1,17 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
-import Modal from '@components/Modal';
-import { BackButton, ConfirmButton } from '@components/Button';
-import { COLORS } from '@styles/theme/colors';
-import { MainProps } from './interfaces';
-import {
-  Container,
-  LargeStyle,
-  SmallStyle,
-  Title,
-  Description,
-} from '../styles';
-import { ButtonsContainer } from './styles';
+import { useAuth } from '@hooks/Auth';
+import { AskExitProps } from './interfaces';
+import Main from './Main';
 
-const Main: React.FC<MainProps> = ({ isVisible, toggleVisibility, isMobile }) => (
-  <Modal
-    isVisible={isVisible}
-    style={isMobile ? SmallStyle : LargeStyle}
-  >
-    <Container>
-      <Title>Exit</Title>
-      <Description>
-        {`You choose the "Exit" option. By confirming the action, your section will be
-        ended and you will be redirected to the SignIn page. Do you confirm your choice?`}
-      </Description>
-      <ButtonsContainer>
-        <BackButton
-          onClick={toggleVisibility}
-          style={{ width: 120, marginRight: 15, background: COLORS.lighterGreen }}
-        />
+const AskExit: React.FC<AskExitProps> = (props) => {
+  const { logOut } = useAuth();
 
-        <ConfirmButton
-          onClick={() => {}}
-          style={{ background: 'rgba(220, 0, 0, 0.85)', width: 120 }}
-        />
-      </ButtonsContainer>
-    </Container>
-  </Modal>
-);
+  const handleSignOut = useCallback(() => {
+    logOut();
+  }, [logOut]);
 
-export default Main;
+  return <Main {...props} handleSignOut={handleSignOut} />;
+};
+
+export default AskExit;

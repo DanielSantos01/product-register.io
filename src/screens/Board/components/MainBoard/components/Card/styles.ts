@@ -12,6 +12,7 @@ export const Container = styled.div`
   cursor: pointer;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
   padding: 10px;
+  margin-bottom: 20px;
 
   @media(max-width: 768px) {
     border-radius: 0px;
