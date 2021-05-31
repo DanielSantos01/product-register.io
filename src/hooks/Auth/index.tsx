@@ -38,7 +38,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const updateSpreadsheet = useCallback(async (user: User, position: number) => {
     const { name, login, role } = user;
     const value: string = `${name},${login},${role}`;
-    await write({ position: position + 1, key: PossibleKeys.name, value });
+    await write({ position: position + 2, key: PossibleKeys.name, value });
   }, [write]);
 
   const checkLocalData = useCallback(() => {

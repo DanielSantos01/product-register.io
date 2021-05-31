@@ -37,18 +37,18 @@ export const ItemsProvider: React.FC = ({ children }) => {
   const updateSpreasdheet = useCallback(async (correction: number) => {
     const response: Array<string[]> = await read({
       key: PossibleKeys.creation,
-      position: position + 1,
+      position: position + 2,
     });
     const hasRegister: boolean = !!response;
     if (hasRegister) {
       const value: string = `${items.length + correction}`;
-      await write({ key: PossibleKeys.count, position: position + 1, value });
+      await write({ key: PossibleKeys.count, position: position + 2, value });
     } else {
       const date: string = moment(new Date()).format('DD/MM/YYYY');
       const value: string = `${date},${items.length + correction}`;
-      await write({ key: PossibleKeys.creation, position: position + 1, value });
+      await write({ key: PossibleKeys.creation, position: position + 2, value });
     }
-  }, [items.length, read, write]);
+  }, [items, read, write]);
 
   const getItems = useCallback(async () => {
     dispatch({ type: 'set_loading', isLoading: true });
