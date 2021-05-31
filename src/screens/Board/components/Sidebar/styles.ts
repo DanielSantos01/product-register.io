@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: ${window.innerHeight - 70}px;
-  width: 500px;
+  width: 400px;
   border-right: 1px solid ${({ theme }) => theme.colors.discretGrey};
   overflow: hidden;
 

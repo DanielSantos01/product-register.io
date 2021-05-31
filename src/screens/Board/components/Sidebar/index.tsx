@@ -1,16 +1,17 @@
 import React from 'react';
+
+import Soon from '@components/Soon';
 import { useMediaQuery } from 'react-responsive';
-import { SmallContent, Filters } from './components';
 
 import { Container, Title } from './styles';
 
 const Sidebar: React.FC = () => {
   const shouldCollapse: boolean = useMediaQuery({ maxWidth: 768 });
 
-  return (
+  return shouldCollapse ? <></> : (
     <Container>
-      {!shouldCollapse && <Title>Filters</Title>}
-      {shouldCollapse ? <SmallContent /> : <Filters />}
+      <Title>Filters</Title>
+      <Soon />
     </Container>
   );
 };
