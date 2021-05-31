@@ -1,5 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './styles/animations/index.css';
 import AppRoutes from './routes';
@@ -10,6 +12,7 @@ const App: React.FC = () => (
   <ThemeProvider theme={defaultTheme}>
     <GlobalStyles />
     <AppRoutes />
+    <ToastContainer position="bottom-right" />
   </ThemeProvider>
 );
 

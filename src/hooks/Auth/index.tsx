@@ -3,10 +3,12 @@ import React, {
   useContext,
   useCallback,
   useReducer,
+  useEffect,
 } from 'react';
 
 import AppHttpHelper from '@services/httpService';
 import { HttpHelperResponse } from '@/modules/http/data/protocols';
+import { APP_CONSTANTS } from '../../constants';
 import { HttpStatusCode } from '../../modules/http/domain/interfaces';
 import { authReducer, getInitialState, mountUrl } from './utils';
 import {
@@ -26,6 +28,22 @@ export const AuthProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer<AuthReducer>(authReducer, initialState);
   const { hasUserData, isLoading, userData } = state;
 
+  const checkLocalData = useCallback(async () => {
+    const data: string | null = window.localStorage.getItem(APP_CONSTANTS.LOCAL_USER_KEY);
+    if (data) {
+      const user: User = JSON.parse(data);
+      dispatch({ type: 'set_user', user });
+      dispatch({ type: 'manage_flags', hasUserData: true });
+    }
+  }, []);
+
+  const setLocalData = useCallback((user: User) => {
+    window.localStorage.setItem(
+      APP_CONSTANTS.LOCAL_USER_KEY,
+      JSON.stringify(user),
+    );
+  }, []);
+
   const handleSignIn = useCallback((data: HttpHelperResponse<User[]>) => {
     const { body, statusCode } = data;
     const hasError: boolean = statusCode !== HttpStatusCode.OK;
@@ -34,8 +52,9 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     if (hasError || !hasUserData) return false;
     dispatch({ type: 'set_user', user });
+    setLocalData(user);
     return true;
-  }, []);
+  }, [setLocalData]);
 
   const signIn = useCallback(async (data: AcessDataModel) => {
     dispatch({ type: 'manage_flags', isLoading: true });
@@ -60,10 +79,11 @@ export const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   const update = useCallback(async (data: UpdateDataModel) => {
+    const { _id, ...rest } = data;
     dispatch({ type: 'manage_flags', isLoading: true });
     const url: string = mountUrl('user');
     const updateResponse: HttpHelperResponse<User> = await AppHttpHelper
-      .patch<User>({ url, body: data });
+      .patch<User>({ url, body: { id: _id, ...rest } });
 
     dispatch({ type: 'manage_flags', isLoading: false });
     const wasUserUpdated: boolean = updateResponse.statusCode === HttpStatusCode.OK;
@@ -85,7 +105,12 @@ export const AuthProvider: React.FC = ({ children }) => {
   const logOut = useCallback(async () => {
     dispatch({ type: 'clear_user_data' });
     dispatch({ type: 'manage_flags', isLoading: false, hasUserData: false });
+    window.localStorage.removeItem(APP_CONSTANTS.LOCAL_USER_KEY);
   }, []);
+
+  useEffect(() => {
+    checkLocalData();
+  }, [checkLocalData]);
 
   return (
     <AuthContext.Provider

@@ -6,13 +6,14 @@ import Main from './Main';
 
 const Board: React.FC = () => {
   const { push } = useHistory();
-  const { hasUserData } = useAuth();
+  const { hasUserData, userData } = useAuth();
+  const { name, role } = userData;
 
   useEffect(() => {
     if (!hasUserData) push('/auth');
   }, [hasUserData]);
 
-  return <Main />;
+  return <Main userName={name} userRole={role} />;
 };
 
 export default Board;

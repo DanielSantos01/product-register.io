@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 
 import { HeaderProps } from './interfaces';
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
         {customIcon}
         <InfoContainer>
           <HeaderTitle>{title}</HeaderTitle>
-          {description && <Description>{description}</Description>}
+          {description && <Description>({description})</Description>}
         </InfoContainer>
       </HeaderTitleContainer>
       {children}

@@ -11,7 +11,7 @@ const Routes: React.FC = () => {
     <>
       <Switch>
         <Route path="/auth" component={AuthRoutes} />
-        <Route path="/" component={AppRoutes} />
+        <Route path="/app" component={AppRoutes} />
       </Switch>
       <Redirect to={hasUserData ? '/app' : '/auth'} />
     </>

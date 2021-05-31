@@ -1,5 +1,6 @@
 export interface FieldsProps {
   fields: FieldModel[];
+  defaultValues?: string[];
 }
 
 export interface FieldModel {

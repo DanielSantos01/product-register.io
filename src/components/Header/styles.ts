@@ -44,5 +44,6 @@ export const HeaderTitle = styled.p`
 export const Description = styled.p`
   font-family: ${({ theme }) => theme.fonts.terciary};
   font-size: 11px;
+  padding-left: 10px;
   color: white;
 `;
