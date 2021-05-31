@@ -116,7 +116,7 @@
   to {
     background-color: transparent;
     z-index: -100;
-    transform: translateY(-200%) translateZ(0);
+    transform: translateY(100%) translateZ(0);
   }
 }
 

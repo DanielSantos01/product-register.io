@@ -10,9 +10,10 @@ export const Container = styled.div`
   width: 100%;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.09);
   padding: 10px;
   margin-bottom: 20px;
+  overflow: hidden;
 
   @media(max-width: 768px) {
     border-radius: 0px;
@@ -61,9 +62,7 @@ export const Desciption = styled.p`
   font-style: italic;
 
   @media(max-width: 768px) {
-    padding-left: 15px;
-    margin-top: 10px;
-    font-size: 12px;
+    display: none;
   }
 `;
 

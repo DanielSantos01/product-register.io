@@ -20,7 +20,7 @@ export const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 15px;
 `;
 
 export const RowContainer = styled.div<{ hasBorder?: boolean }>`
@@ -31,7 +31,8 @@ export const RowContainer = styled.div<{ hasBorder?: boolean }>`
   height: 35px;
   border-radius: 10px;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 0px 7px 15px 7px;
+  background-color: rgba(0, 0, 0, 0.07);
   border: ${({ theme, hasBorder }) => (hasBorder ? `1px solid ${theme.colors.discretGrey}` : 'none')};
   cursor: pointer;
   transition: 250ms;
