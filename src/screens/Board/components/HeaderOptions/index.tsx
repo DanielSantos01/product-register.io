@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
-import { useAuth } from '@hooks/Auth';
 import Main from './Main';
 
 const HeaderOptions: React.FC = () => {

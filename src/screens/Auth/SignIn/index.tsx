@@ -28,6 +28,7 @@ const SignIn: React.FC = () => {
     const targetValue = document.querySelector<any>('.input-check-login').value;
     const isEmpty: boolean = checkFieldEmpty(targetValue);
     if (isEmpty) return;
+
     setCheckingLogin(true);
     const exists: boolean = await checkExists(targetValue);
     handleCheckResult(exists, targetValue);

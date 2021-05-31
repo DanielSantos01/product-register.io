@@ -37,9 +37,11 @@ const Main: React.FC<MainProps> = ({ handleCheckLogin, isCheckingLogin }) => (
     <InputContainer>
       <Input placeholder="youremail@somedomain.com" className="input-check-login" />
       <Button onClick={handleCheckLogin}>
+
         {isCheckingLogin ? <Loader /> : <SubmitButtonContent />}
       </Button>
     </InputContainer>
+
     <RegistrationInfo>
       Registrate now and be able to this and much more!
     </RegistrationInfo>

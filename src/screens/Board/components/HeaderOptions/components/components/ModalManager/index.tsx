@@ -4,7 +4,6 @@ import { ModalManagerProps } from './interfaces';
 import AskExit from '../AskExit';
 import CreateItem from '../CreateItem';
 import EditUser from '../EditUser';
-import { Container } from './styles';
 
 const ModalManager: React.FC<ModalManagerProps> = ({
   isCreateVisible,

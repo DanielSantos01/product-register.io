@@ -20,13 +20,18 @@ const Header: React.FC<HeaderProps> = ({
   <Container>
     <RowContainer>
       <HeaderTitleContainer>
+
         {customIcon}
+
         <InfoContainer>
           <HeaderTitle>{title}</HeaderTitle>
           {description && <Description>({description})</Description>}
         </InfoContainer>
+
       </HeaderTitleContainer>
+
       {children}
+
     </RowContainer>
   </Container>
 );

@@ -38,17 +38,16 @@ export const AuthProvider: React.FC = ({ children }) => {
   const updateSpreadsheet = useCallback(async (user: User, position: number) => {
     const { name, login, role } = user;
     const value: string = `${name},${login},${role}`;
-    await write({ position, key: PossibleKeys.name, value });
+    await write({ position: position + 1, key: PossibleKeys.name, value });
   }, [write]);
 
-  const checkLocalData = useCallback(async () => {
+  const checkLocalData = useCallback(() => {
     const data: string | null = window.localStorage.getItem(APP_CONSTANTS.LOCAL_USER_KEY);
-    if (data) {
-      const stored = JSON.parse(data);
-      const [user, position] = stored;
-      dispatch({ type: 'set_user', user, position });
-      dispatch({ type: 'manage_flags', hasUserData: true });
-    }
+    if (!data) return;
+    const stored = JSON.parse(data);
+    const [user, position] = stored;
+    dispatch({ type: 'set_user', user, position });
+    dispatch({ type: 'manage_flags', hasUserData: true });
   }, []);
 
   const setLocalData = useCallback((user: User, position: number) => {
@@ -95,7 +94,7 @@ export const AuthProvider: React.FC = ({ children }) => {
     const hasSuccess: boolean = await handleSignIn(signInResponse);
     dispatch({ type: 'manage_flags', isLoading: false, hasUserData: hasSuccess });
     return hasSuccess;
-  }, []);
+  }, [handleSignIn]);
 
   const signUp = useCallback(async (data: SignUpDataModel) => {
     dispatch({ type: 'manage_flags', isLoading: true });

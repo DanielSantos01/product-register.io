@@ -34,21 +34,21 @@ export const ItemsProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer<ItemReducer>(itemReducer, initialState);
   const { isLoading, items } = state;
 
-  const updateSpreasdheet = useCallback(async () => {
+  const updateSpreasdheet = useCallback(async (correction: number) => {
     const response: Array<string[]> = await read({
       key: PossibleKeys.creation,
-      position,
+      position: position + 1,
     });
     const hasRegister: boolean = !!response;
     if (hasRegister) {
-      const value: string = `${items.length}`;
+      const value: string = `${items.length + correction}`;
       await write({ key: PossibleKeys.count, position: position + 1, value });
     } else {
-      const date: string = moment(new Date()).format('DD/MM/YYY');
-      const value: string = `${date},${items.length}`;
+      const date: string = moment(new Date()).format('DD/MM/YYYY');
+      const value: string = `${date},${items.length + correction}`;
       await write({ key: PossibleKeys.creation, position: position + 1, value });
     }
-  }, []);
+  }, [items.length, read, write]);
 
   const getItems = useCallback(async () => {
     dispatch({ type: 'set_loading', isLoading: true });
@@ -58,7 +58,7 @@ export const ItemsProvider: React.FC = ({ children }) => {
       dispatch({ type: 'set_items', items: response.body });
     }
     dispatch({ type: 'set_loading', isLoading: false });
-  }, []);
+  }, [userData._id]);
 
   const create = useCallback(async (data: BaseItemModel) => {
     const url: string = mountUrl('/item/create');
@@ -67,7 +67,7 @@ export const ItemsProvider: React.FC = ({ children }) => {
     );
     const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
     if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
-    await updateSpreasdheet();
+    await updateSpreasdheet(1);
     return hasSuccess;
   }, [updateSpreasdheet]);
 
@@ -88,10 +88,11 @@ export const ItemsProvider: React.FC = ({ children }) => {
     dispatch({ type: 'set_loading', isLoading: true });
     const url: string = mountUrl(`/item/delete?id=${id}&ownerId=${ownerId}`);
     const response: HttpHelperResponse<Item[]> = await AppHttpHelper.delete<Item[]>({ url });
+
     const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
     if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
     dispatch({ type: 'set_loading', isLoading: false });
-    await updateSpreasdheet();
+    await updateSpreasdheet(-1);
     return hasSuccess;
   }, [updateSpreasdheet]);
 
@@ -100,7 +101,6 @@ export const ItemsProvider: React.FC = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    updateSpreasdheet();
     if (hasUserData) {
       getItems();
     }

@@ -10,8 +10,11 @@ import Main from './Main';
 
 const SignUp: React.FC = () => {
   const [isSubmiting, setSubmiting] = useState<boolean>(false);
-  const { goBack } = useHistory();
+  const { goBack, location } = useHistory<any>();
   const { signUp } = useAuth();
+  const { login } = location.state;
+  const defaultValues: string[] = [];
+  defaultValues[2] = login;
 
   const handleReturn = useCallback(() => {
     goBack();
@@ -56,6 +59,7 @@ const SignUp: React.FC = () => {
       handleReturn={handleReturn}
       handleSignUp={handleSignUp}
       isSubmiting={isSubmiting}
+      defaultValues={defaultValues}
     />
   );
 };

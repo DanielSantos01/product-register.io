@@ -10,14 +10,19 @@ import {
   ContentContainer,
 } from './styles';
 
-const Main: React.FC<MainProps> = ({ handleReturn, handleSignUp, isSubmiting }) => (
+const Main: React.FC<MainProps> = ({
+  handleReturn,
+  handleSignUp,
+  isSubmiting,
+  defaultValues,
+}) => (
   <Container>
     <Title>SIGN UP</Title>
 
     <Description>fill the required fields to create your account</Description>
 
     <ContentContainer>
-      <Fields />
+      <Fields defaultValues={defaultValues} />
 
       <ConfirmButton onClick={handleSignUp} isLoading={isSubmiting} />
 
