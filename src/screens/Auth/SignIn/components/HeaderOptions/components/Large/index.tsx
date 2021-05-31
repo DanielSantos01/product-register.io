@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Loader from '@components/Loader';
 import { MainProps } from './interfaces';
 import {
   Container,
@@ -10,7 +11,7 @@ import {
   FieldInput,
 } from './styles';
 
-const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn }) => (
+const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn, isSubmiting }) => (
   <Container>
     <AuxContainer>
       <ModelContainer style={{ marginRight: 10 }}>
@@ -28,7 +29,7 @@ const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn }) => (
       <FieldInput placeholder="Password" type="password" className="input-password-signin" />
 
       <ModelContainer style={{ marginRight: 10 }} onClick={handleSignIn}>
-        <TextContent underline>Sign In</TextContent>
+        {isSubmiting ? <Loader size={18} /> : <TextContent underline>Sign In</TextContent>}
       </ModelContainer>
 
       <SignUpButton onClick={goToSignUp}>

@@ -3,12 +3,12 @@ import React from 'react';
 import { MainProps } from './interfaces';
 import { Collapsed, Large } from './components';
 
-const HeaderOptions: React.FC<MainProps> = ({ goToSignUp, handleSignIn, shouldCollapse }) => (
+const HeaderOptions: React.FC<MainProps> = ({ shouldCollapse, ...rest }) => (
   <>
     {shouldCollapse ? (
-      <Collapsed goToSignUp={goToSignUp} handleSignIn={handleSignIn} />
+      <Collapsed {...rest} />
     ) : (
-      <Large goToSignUp={goToSignUp} handleSignIn={handleSignIn} />
+      <Large {...rest} />
     )}
   </>
 );

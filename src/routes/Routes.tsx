@@ -10,10 +10,10 @@ const Routes: React.FC = () => {
   return (
     <>
       <Switch>
-        {/* <Route path="/auth" component={AuthRoutes} /> */}
+        <Route path="/auth" component={AuthRoutes} />
         <Route path="/" component={AppRoutes} />
       </Switch>
-      {/* <Redirect to={hasUserData ? '/app' : '/auth'} /> */}
+      <Redirect to={hasUserData ? '/app' : '/auth'} />
     </>
   );
 };

@@ -1,4 +1,5 @@
 export interface CollapsedProps {
+  isSubmiting: boolean;
   handleSignIn: () => Promise<void>
   goToSignUp: () => void;
 }
