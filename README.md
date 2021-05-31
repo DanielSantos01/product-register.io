@@ -1,7 +1,7 @@
 # ProductRegister.io
 A website designed to help with product registration and organization
 
-#Use
+# Usage
 On the home page you will see a login screen. If you already have an account, just enter your login and password in the upper fields and click on signIn. Otherwise, you have two options:
 
 1 - Click on the signUp button at the end of the header: It will take you to the registration screen;
@@ -21,7 +21,7 @@ By accessing the link https://docs.google.com/spreadsheets/d/14kdDnUvlZFsxKvfQr_
 And that's it, a simple application developed in 8 days.
 
 
-Attention to the notes!!!
+# Attention to the notes!!!
 Some inconsistencies can be found by the user, they are:
 1) Excessive loading time: For these cases, restart the page. If it happens at the time of creation of the crota, or deletion of some item, for example, rest assured, the action was probably saved and will not be lost on reload.
 
