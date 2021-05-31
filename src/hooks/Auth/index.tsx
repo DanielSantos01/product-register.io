@@ -36,6 +36,7 @@ export const AuthProvider: React.FC = ({ children }) => {
   const { write } = useSheets();
 
   const updateSpreadsheet = useCallback(async (user: User, position: number) => {
+    if (position < 0 || !position) return;
     const { name, login, role } = user;
     const value: string = `${name},${login},${role}`;
     await write({ position: position + 2, key: PossibleKeys.name, value });
@@ -107,10 +108,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const userPosition: number = await getUserPosition(user._id);
     const hasSuccess: boolean =
       signUpResponse.statusCode === HttpStatusCode.OK && userPosition !== -1;
-    if (!hasSuccess) return false;
-    await updateSpreadsheet(signUpResponse.body, userPosition);
-    return true;
-  }, [getUserPosition, updateSpreadsheet]);
+    return hasSuccess;
+  }, [getUserPosition]);
 
   const update = useCallback(async (data: UpdateDataModel) => {
     const { _id, ...rest } = data;
@@ -123,9 +122,8 @@ export const AuthProvider: React.FC = ({ children }) => {
     const wasUserUpdated: boolean = updateResponse.statusCode === HttpStatusCode.OK;
     if (!wasUserUpdated) return false;
     dispatch({ type: 'set_user', user: updateResponse.body, position: userPosition });
-    await updateSpreadsheet(updateResponse.body, userPosition);
     return true;
-  }, [updateSpreadsheet, userPosition]);
+  }, [userPosition]);
 
   const checkExists = useCallback(async (login: string) => {
     dispatch({ type: 'manage_flags', isLoading: true });
@@ -147,6 +145,11 @@ export const AuthProvider: React.FC = ({ children }) => {
   useEffect(() => {
     checkLocalData();
   }, [checkLocalData]);
+
+  useEffect(() => {
+    if (!userPosition) return;
+    updateSpreadsheet(userData, userPosition);
+  }, [userPosition, userData, updateSpreadsheet]);
 
   return (
     <AuthContext.Provider
