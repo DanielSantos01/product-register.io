@@ -12,7 +12,7 @@ const SignUp: React.FC = () => {
   const [isSubmiting, setSubmiting] = useState<boolean>(false);
   const { goBack, location } = useHistory<any>();
   const { signUp } = useAuth();
-  const { login } = location.state;
+  const login: string = location.state?.login || '';
   const defaultValues: string[] = [];
   defaultValues[2] = login;
 
