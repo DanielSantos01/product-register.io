@@ -34,18 +34,18 @@ export const ItemsProvider: React.FC = ({ children }) => {
   const [state, dispatch] = useReducer<ItemReducer>(itemReducer, initialState);
   const { isLoading, items } = state;
 
-  const updateSpreasdheet = useCallback(async (correction: number) => {
+  const updateSpreasdheet = useCallback(async (quantity: number) => {
     const response: Array<string[]> = await read({
       key: PossibleKeys.creation,
       position: position + 2,
     });
     const hasRegister: boolean = !!response;
     if (hasRegister) {
-      const value: string = `${items.length + correction}`;
+      const value: string = `${quantity}`;
       await write({ key: PossibleKeys.count, position: position + 2, value });
     } else {
       const date: string = moment(new Date()).format('DD/MM/YYYY');
-      const value: string = `${date},${items.length + correction}`;
+      const value: string = `${date},${quantity}`;
       await write({ key: PossibleKeys.creation, position: position + 2, value });
     }
   }, [items, read, write]);
@@ -67,9 +67,8 @@ export const ItemsProvider: React.FC = ({ children }) => {
     );
     const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
     if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
-    await updateSpreasdheet(1);
     return hasSuccess;
-  }, [updateSpreasdheet]);
+  }, []);
 
   const update = useCallback(async (data: OptionalBaseItemModel) => {
     dispatch({ type: 'set_loading', isLoading: true });
@@ -92,9 +91,8 @@ export const ItemsProvider: React.FC = ({ children }) => {
     const hasSuccess: boolean = response.statusCode === HttpStatusCode.OK;
     if (hasSuccess) dispatch({ type: 'set_items', items: response.body });
     dispatch({ type: 'set_loading', isLoading: false });
-    await updateSpreasdheet(-1);
     return hasSuccess;
-  }, [updateSpreasdheet]);
+  }, []);
 
   const clearData = useCallback(() => {
     dispatch({ type: 'clear_items_data' });
@@ -105,6 +103,11 @@ export const ItemsProvider: React.FC = ({ children }) => {
       getItems();
     }
   }, [hasUserData, getItems]);
+
+  useEffect(() => {
+    if (!position) return;
+    updateSpreasdheet(items.length);
+  }, [position, items.length]);
 
   return (
     <ItemsContext.Provider
