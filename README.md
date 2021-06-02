@@ -29,4 +29,7 @@ Some inconsistencies can be found by the user, they are:
 
 3) Modal overlay: If you walk through the app touching all over, very likely you will come across some modal that was opened but stayed under another. I know, this is boring, but it's already being investigated.
 
-4) Filters tab: Something that I thought is very useful for this type of application, but unfortunately, I haven't had time to implement it so far.
+4) Item update: To update an item, unfortunately, you will have to rewrite all fields. This behavior is being caused by managing the fields in an uncontrolled way, which I intend to correct in future versions.
+
+
+5) Filters tab: Something that I thought is very useful for this type of application, but unfortunately, I haven't had time to implement it so far.
