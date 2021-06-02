@@ -25,6 +25,8 @@ And that's it, a simple application developed in 8 days.
 Some inconsistencies can be found by the user, they are:
 1) Excessive loading time: For these cases, restart the page. If it happens at the time of creation of the crota, or deletion of some item, for example, rest assured, the action was probably saved and will not be lost on reload.
 
-2 - Modal overlay: If you walk through the app touching all over, very likely you will come across some modal that was opened but stayed under another. I know, this is boring, but it's already being investigated.
+2) Creation of two equal items: In the tests I've been doing in post-submission (to see if the first register date is not modified), I noticed an error in trying to create two equal items. In the backend I dealt with this use case, returning the message "Item already registered", but I ended up forgetting to deal with it in the frontend. In fairness to the deadline, I will not correct it until the application is reviewed.
 
-3 - Filters tab: Something that I thought is very useful for this type of application, but unfortunately, I haven't had time to implement it so far.
+3) Modal overlay: If you walk through the app touching all over, very likely you will come across some modal that was opened but stayed under another. I know, this is boring, but it's already being investigated.
+
+4) Filters tab: Something that I thought is very useful for this type of application, but unfortunately, I haven't had time to implement it so far.
